@@ -1,0 +1,49 @@
+{% load static %}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+    flex-direction: column;
+}
+footer{
+    position:relative;
+    width: 804px;
+    height: 100px;
+    display: block;
+    padding: 5px;
+
+}
+.contenedorLogin{
+
+    width: 804px;
+    height: 500px;
+    bottom: 145px;
+    background: #F2F2F2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.bloque{
+    width: 804px;
+    height: 150px;
+}
+.logo{
+    display:block;
+    padding: 30px;
+    float:right;
+    width: 113px;
+    height: 85px;
+
+}
+
+.bloqueiconos{
+    display:block;
+    padding: 30px;
+    float:right;
+}
+.content{
+    text-align: center;
+    display:block;
+}
+

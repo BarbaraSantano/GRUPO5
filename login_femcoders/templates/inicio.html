@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profesor</title>
+</head>
+<body>
+<h1>Área profesor</h1>
+
+
+{% for p in profesor %}
+    <div>
+        <h3>
+        {{p.nombre}}
+        {{p.apellido}}
+        </h3>
+    </div>
+    <div>
+    {% for m in p.materia.all %}
+        <li>{{m.materias}}</li>
+    </div>
+
+
+    {% endfor %}
+{% endfor %}
+
+
+</body>
+</html>

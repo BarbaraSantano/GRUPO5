@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Mis Alumnos</h1>
+    {% for u in Misalumnos %}
+    <ul>
+        <li>
+            {{u.nombre}}
+            {{u.apellido}}
+            {{u.email}}
+            {{u.dni}}
+        </li>
+    </ul>
+        {% endfor %}
+    <a href="{% url 'nuevoal' %}">
+    <button>Añadir alumno</button>
+     </a>
+
+{% endblock content %}

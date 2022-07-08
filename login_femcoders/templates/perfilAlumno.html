@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Perfil Alumno</h1>
+    <div>id Alumno:{{alumno.id}}</div>
+    <div>nombre:{{alumno.nombre}}</div>
+    <div>apellido:{{alumno.apellido}}</div>
+    <div>email:{{alumno.email}}</div>
+    <div>dni:{{alumno.dni}}</div>
+
+    <a href="{% url 'evaluacion' %}">
+    <button>volver</button>
+    </a>
+
+{% endblock content %}
+
+
+
+
+</body>
+</html>

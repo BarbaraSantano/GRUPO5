@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h1>Evaluación</h1>
+
+{% for e in evaluacion %}
+<li>
+        {{e.nombre}}
+        {% for a in evaalumn %}
+        {% if e.alumno.id == a.id %}
+        {{a.nombre}}
+        <a href="perfilAlumno/{{a.id}}">Perfil</a>
+        {% endif %}
+        {% endfor %}
+        {{e.nota}}
+        <a href="{% url 'ponernota' e.id %}">Editar</a>
+        <a href="{% url 'eliminar' e.id %}">Borrar</a>
+        {{e.comentario}}
+        {% endfor %}
+</li>
+
+     <a href="{% url 'nuevaevaluacion' %}">
+    <button>Añadir Evaluacion</button>
+     </a>
+
+{% endblock content %}

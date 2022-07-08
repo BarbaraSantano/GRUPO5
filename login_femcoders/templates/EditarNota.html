@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+ <form method ="POST">
+     <div>
+            {{nota}}
+            <button type="submit">Validar</button>
+            {% csrf_token %}
+
+     </div>
+ </form>
+{% endblock content %}
