@@ -6,12 +6,12 @@ from codersapp.models import *
 
 
 
-@login_required
+#@login_required
 def inicio(request):
     profesor = Profesor.objects.all()
     return render(request, 'inicio.html', {'profesor': profesor})
 
-@login_required
+#@login_required
 def evaluacion(request):
     laevaluacion = Evaluacion.objects.all
     laevaluacionalumno = Alumno.objects.all()
@@ -21,7 +21,7 @@ def evaluacion(request):
 def cuentas(request):
     return render(request, 'login.html')
 
-@login_required
+#@login_required
 def perfilAlumno(request, id):
     elperfilAlumno= Alumno.objects.get(pk=id)
     return render(request, 'perfilAlumno.html', {'alumno': elperfilAlumno})
@@ -45,9 +45,9 @@ def eliminarEvau(request, id):
     return redirect('evaluacion')
 
 
-def salir(request):
+"""def salir(request):
     logout(request)
-    return redirect('login/')
+    return redirect('login/')"""
 
 
 def nuevoAlumno(request):

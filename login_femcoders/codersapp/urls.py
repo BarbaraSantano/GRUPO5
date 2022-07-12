@@ -17,10 +17,10 @@ Including another URLconf
 from django.urls import path
 
 from codersapp.views import *
-from codersapp.forms import *
+
 
 urlpatterns = [
-    path('inicio/', inicio, name='inicio'),
+    path('', inicio, name='inicio'),
     path('evaluacion/', evaluacion, name='evaluacion'),
     path('evaluacion/perfilAlumno/<int:id>', perfilAlumno, name='perfilalumno'),
     path('EditarNota/<int:id>', editevau, name='ponernota'),
