@@ -78,8 +78,14 @@ WSGI_APPLICATION = 'login.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'gestionAlumnos',
+        'CLIENT': {
+            'host': 'mongodb+srv://BarbaraSantano:Teclado657*@proyectosfemcoders.app18.mongodb.net/?retryWrites=true&w=majority',
+            'username': 'BarbaraSantano',
+            'password': 'Teclado657*',
+            'port': 27017,
+        }
     }
 }
 
