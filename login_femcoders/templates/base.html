@@ -10,9 +10,6 @@
 </head>
 <body>
     <section class="contenedorLogin">
-        <div class="bloque">
-            <img src="/static/img/Logo-FemCodersF5-color-1024x764 (3).png" class="logo">
-        </div>
         <div class="content">
             <div class="cont-menu">
                 <nav class="dentro-cont">
@@ -20,6 +17,7 @@
                     <a href="{% url "evaluacion" %}">Evaluaciones</a>
                     <a href="{% url "listaal" %}">Alumnos</a>
                     <a href="{% url "saliendo" %}">Cerrar Sesion</a>
+                    <img src="/static/img/Logo-FemCodersF5-color-1024x764 (3).png" class="logo">
                 </nav>
             </div>
             {% block content %}
