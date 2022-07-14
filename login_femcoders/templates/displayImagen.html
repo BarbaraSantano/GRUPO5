@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        {% for i in imagen %}
+            <div class="col-md-4">
+                {{ i.nombre }}
+                <img src="../../static/img/{{i.fotoPerfil}}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+            </div>
+        {% endfor %}
+
+   <a href="{% url 'listaal' %}">
+     <button>Volver</button>
+        </a>
+
+{% endblock content %}

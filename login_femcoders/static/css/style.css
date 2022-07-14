@@ -19,7 +19,7 @@ footer{
     width: 804px;
     height: 500px;
     bottom: 145px;
-    background: #F2F2F2;
+    background: F2F2F2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
 }
@@ -44,6 +44,15 @@ footer{
 }
 .content{
     text-align: center;
-    display:block;
+    display: block;
 }
 
+.cont-menu{
+    background: blue;
+    width: 200px;
+    height: 200px;
+}
+
+nav{
+    background: blue;
+}

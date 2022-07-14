@@ -22,7 +22,7 @@ class Profesor(models.Model):
 
 class Alumno(models.Model):
     id = models.AutoField(primary_key=True)
-    fotoPerfil= models.FileField
+    fotoPerfil = models.ImageField(upload_to='fotoPerfil/', null=True, blank=True)
     nombre = models.CharField(max_length=25)
     apellido = models.CharField(max_length=25)
     dni = models.CharField(max_length=9)

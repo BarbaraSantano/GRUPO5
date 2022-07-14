@@ -11,9 +11,11 @@
             {{u.apellido}}
             {{u.email}}
             {{u.dni}}
+            {{u.id}}
+            <a href="{% url 'displayImagen' %}">Ver imagen</a>
         </li>
     </ul>
-        {% endfor %}
+    {% endfor %}
     <a href="{% url 'nuevoal' %}">
     <button>Añadir alumno</button>
      </a>

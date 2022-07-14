@@ -1,17 +1,26 @@
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.forms import modelform_factory
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.contrib.auth.forms import UserCreationForm
 
 from codersapp.forms import *
 from codersapp.models import *
 
 
 
-#@login_required
+@login_required
 def inicio(request):
     profesor = Profesor.objects.all()
-    return render(request, 'inicio.html', {'profesor': profesor})
+    materias = Materia.objects.all()
+    return render(request, 'inicio.html', {'profesor': profesor, 'materia': materias})
 
-#@login_required
+
 def evaluacion(request):
     laevaluacion = Evaluacion.objects.all
     laevaluacionalumno = Alumno.objects.all()
@@ -21,7 +30,7 @@ def evaluacion(request):
 def cuentas(request):
     return render(request, 'login.html')
 
-#@login_required
+
 def perfilAlumno(request, id):
     elperfilAlumno= Alumno.objects.get(pk=id)
     return render(request, 'perfilAlumno.html', {'alumno': elperfilAlumno})
@@ -45,9 +54,9 @@ def eliminarEvau(request, id):
     return redirect('evaluacion')
 
 
-"""def salir(request):
+def salir(request):
     logout(request)
-    return redirect('login/')"""
+    return redirect('/')
 
 
 def nuevoAlumno(request):
@@ -61,7 +70,7 @@ def nuevoAlumno(request):
 
     return render(request, 'nuevoAlumno.html', {'formaAlumno': formaAlumno})
 
-@login_required
+#@login_required
 def ListaAlumno(request):
     MisAlumnos= Alumno.objects.all
     return render(request, 'listaAlumnos.html', {'Misalumnos': MisAlumnos})
@@ -76,3 +85,38 @@ def nuevaEvaluacion(request):
         formaNuevaEvaluacion = NuevaEvaluacionForm
 
     return render(request, 'nuevaEvaluacion.html', {'formaNuevaEvaluacion': formaNuevaEvaluacion})
+
+
+def registro(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            form.save()
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    context = {'form': form}
+    return render(request, 'registration/registrar.html', context)
+
+
+def vistaImagen(request):
+    if request.method == 'POST':
+        form = ImagenForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect('listaal')
+    else:
+        form = ImagenForm()
+    return render(request, 'imagen.html', {'form': form})
+
+def success(request):
+    return HttpResponse('La imagen ha sido subida correctamente')
+
+
+def displayImagen(request, id):
+    imagen = Alumno.objects.get(pk=id)
+
+    return render(request, 'displayImagen.html',
+                       {'imagen': imagen})

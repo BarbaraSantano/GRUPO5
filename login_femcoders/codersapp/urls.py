@@ -15,9 +15,12 @@ Including another URLconf
 """
 
 from django.urls import path
-
+from django.contrib.auth.views import auth_login
+from django.conf.urls.static import static
+import login
+from codersapp import views
 from codersapp.views import *
-
+from login import settings
 
 urlpatterns = [
     path('', inicio, name='inicio'),
@@ -28,4 +31,13 @@ urlpatterns = [
     path('nuevo_alumno/', nuevoAlumno, name='nuevoal'),
     path('mis_alumnos/', ListaAlumno, name='listaal'),
     path('nueva_evaluacion/', nuevaEvaluacion, name='nuevaevaluacion'),
+    path('salir/', salir, name='saliendo'),
+    path('registrar/', registro, name='registro'),
+    path('imagen/', vistaImagen, name='imagen'),
+    path('success/', success, name='success'),
+    path('displayImagen/', displayImagen, name='displayImagen'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

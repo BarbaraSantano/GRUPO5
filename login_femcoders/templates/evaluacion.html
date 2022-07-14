@@ -16,9 +16,9 @@
         {% endif %}
         {% endfor %}
         {{e.nota}}
+        {{e.comentario}}
         <a href="{% url 'ponernota' e.id %}">Editar</a>
         <a href="{% url 'eliminar' e.id %}">Borrar</a>
-        {{e.comentario}}
         {% endfor %}
 </li>
 

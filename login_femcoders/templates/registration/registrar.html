@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -14,17 +15,15 @@
             <img src="/static/img/Logo-FemCodersF5-color-1024x764 (3).png" class="logo">
         </div>
         <div class="content">
-            <div class="cont-menu">
-                <nav>
-                    <a href="{% url "inicio" %}">Inicio</a>
-                    <a href="{% url "evaluacion" %}">Evaluaciones</a>
-                    <a href="{% url "listaal" %}">Alumnos</a>
-                    <a href="{% url "saliendo" %}">Cerrar Sesion</a>
-                </nav>
-            </div>
-            {% block content %}
-
-            {% endblock content %}
+    <form method="POST">
+        {% csrf_token %}
+      <h1>Registrar persona</h1>
+      <table>
+        {{form}}
+      </table>
+      <button type="submit">Enviar</button>
+      <!--variable para pasar validación-->
+  </form>
         </div>
     </section>
 </body>
