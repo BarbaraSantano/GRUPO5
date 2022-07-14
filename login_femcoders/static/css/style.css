@@ -5,6 +5,7 @@ body{
     align-items: center;
     margin:20px;
     flex-direction: column;
+    font-family: Arial;
 }
 footer{
     position:relative;
@@ -48,11 +49,15 @@ footer{
 }
 
 .cont-menu{
-    background: blue;
-    width: 200px;
-    height: 200px;
+    font-size:
 }
 
-nav{
-    background: blue;
+.dentro-cont{
+    display: flex;
+    justify-content: space-around;
 }
+
+.dentro-cont a{
+    background: lightgray;
+}
+
