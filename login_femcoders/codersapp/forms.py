@@ -67,7 +67,10 @@ class RegistroForm(UserCreationForm):
             'email': EmailInput(attrs={'type':'email'})
         }
 
-class ImagenForm(forms.ImageField):
+class ImagenForm(forms.ModelForm):
+
+    materia = forms.ModelMultipleChoiceField(queryset=Materia.objects.all(), widget=forms.CheckboxSelectMultiple)
+
     class Meta:
         model = Alumno
-        fields = ['nombre', 'fotoPerfil']
+        fields = '__all__'

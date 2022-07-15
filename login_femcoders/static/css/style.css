@@ -64,15 +64,17 @@ footer{
     color: tomato;
     text-decoration: none;
 }
-/* si no funciona quitar flex */
+
 .enlacefinal {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
+    margin-top: 400px;
 }
 
-.enlacefinal a{
-
+.enlacefinal2{
+    margin-top: 250px;
 }
+
+body ul li {
+    text-decoration: none;
+}
+
 

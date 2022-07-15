@@ -3,12 +3,11 @@
 
 {% block content %}
 
-        {% for i in imagen %}
+
             <div class="col-md-4">
-                {{ i.nombre }}
-                <img src="../../static/img/{{i.fotoPerfil}}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+                {{ imagen.nombre }}
+                <img src="../../static/img/{{imagen.fotoPerfil}}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
             </div>
-        {% endfor %}
         <div class="enlacefinal">
             <a href="{% url 'listaal' %}"><button>Volver</button></a>
         </div>

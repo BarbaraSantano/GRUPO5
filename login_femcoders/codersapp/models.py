@@ -28,7 +28,7 @@ class Alumno(models.Model):
     dni = models.CharField(max_length=9)
     telefono = models.CharField(max_length=12)
     email = models.EmailField(max_length=25)
-    fNacimiento = models.DateField()
+    fNacimiento = models.DateField(null=True, blank=True)
     materia = models.ManyToManyField(Materia)
 
     def __str__(self):

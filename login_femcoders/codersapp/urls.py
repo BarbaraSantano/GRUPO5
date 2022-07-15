@@ -35,7 +35,7 @@ urlpatterns = [
     path('registrar/', registro, name='registro'),
     path('imagen/', vistaImagen, name='imagen'),
     path('success/', success, name='success'),
-    path('displayImagen/', displayImagen, name='displayImagen'),
+    path('displayImagen/<int:id>', displayImagen, name='displayImagen'),
 ]
 
 if settings.DEBUG:

@@ -101,15 +101,28 @@ def registro(request):
 
 
 def vistaImagen(request):
-    if request.method == 'POST':
-        form = ImagenForm(request.POST, request.FILES)
+    form = ImagenForm(request.POST or None)
 
-        if form.is_valid():
-            form.save()
-            return redirect('listaal')
-    else:
-        form = ImagenForm()
-    return render(request, 'imagen.html', {'form': form})
+    if request.POST:
+        auto = Alumno()
+        auto.nombre = request.POST.get('txtNombre')
+        auto.apellido = request.POST.get('txtApellido')
+        auto.dni = request.POST.get('txtDni')
+        auto.telefono = int(request.POST.get('txtTelefono'))
+        auto.email = request.POST.get('txtEmail')
+        auto.fNacimiento = request.POST.get('txtFnacimiento')
+        auto.fotoPerfil = request.FILES.get('txtfotoPerfil')
+        try:
+            auto.save()
+            mensaje = "Guardado correctamente"
+            messages.success(request, mensaje)
+        except:
+            mensaje = "No se ha podido guardar"
+            messages.error(request, mensaje)
+        return redirect('listaal')
+
+    return render(request, 'nuevoAlumno.html', {'form': form})
+
 
 def success(request):
     return HttpResponse('La imagen ha sido subida correctamente')
@@ -120,3 +133,4 @@ def displayImagen(request, id):
 
     return render(request, 'displayImagen.html',
                        {'imagen': imagen})
+

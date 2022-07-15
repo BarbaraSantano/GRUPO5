@@ -3,21 +3,29 @@
 
 {% block content %}
 
-
- <form method ="POST">
-     <div style="width:100px;height:385px;display:block;margin-left:auto;margin-right:auto;">
-            {{formaAlumno}}
-            <button type="submit">Validar</button>
-            {% csrf_token %}
-
+<form method="post" enctype="multipart/form-data">
+     {% csrf_token %}
+     <div>
+         <label>Nombre</label>
+         <input type="text" name="txtNombre" id="txtNombre"><br>
+         <label>Apellido</label>
+         <input type="text" name="txtApellido" id="txtApellido"><br>
+         <label>DNI</label>
+         <input type="text" name="txtDni" id="txtDni"><br>
+         <label>Teléfono</label>
+         <input type="tel" name="txtTelefono" id="txtTelefono"><br>
+         <label>Email</label>
+         <input type="email" name="txtEmail" id="txtEmail"><br>
+         <label>Fecha de Nacimiento</label>
+         <input type="date" name="txtFnacimiento" id="txtFnacimiento"><br>
+         <label>Foto de Perfil</label>
+         <input type="file" name="txtfotoPerfil" id="txtfotoPerfil"><br>
      </div>
+
+
+     <br>
+     <button class="btn btn-success" type="submit">Guardar</button>
+
  </form>
-<div class="enlacefinal">
-  <a href="{% url 'saliendo' %}">
-     <button>Cerrar sesión</button>
-  </a>
-      <a href="{% url 'listaal' %}">
-     <button>Volver</button>
-        </a>
-</div>
+
 {% endblock content %}
